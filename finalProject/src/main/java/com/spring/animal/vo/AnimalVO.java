@@ -9,14 +9,14 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 public class AnimalVO extends CommonVO { 
 	private int animalID =0;
-	private String animal_species;
-	private String animal_age;
-	private String animal_gender;
-	private String animal_status;
-	private String animal_kg;
-	private String animal_color;
-	private String animal_memo;
-	private String animal_temp;
-	private String animal_regist;
-	private String animal_name;
+	private String animalSpecies;
+	private String animalAge;
+	private String animalGender;
+	private String animalStatus;
+	private String animalKg;
+	private String animalColor;
+	private String animalMemo;
+	private String animalTemp;
+	private String animalRegist;
+	private String animalName;
 }

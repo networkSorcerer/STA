@@ -7,7 +7,7 @@
 		<result column="animal_age" property="animalAge"/>
 		<result column="animal_gender" property="animalGender"/>
 		<result column="animal_status" property="animalStatus"/>
-		<result column="animal_kg" property="boardDate"/>
+		<result column="animal_kg" property="animalKg"/>
 		<result column="animal_color" property="animalColor"/>
 		<result column="animal_memo" property="animalMemo"/>
 		<result column="animal_temp" property="animalTemp"/>

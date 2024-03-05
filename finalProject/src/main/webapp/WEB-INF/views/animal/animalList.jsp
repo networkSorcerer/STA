@@ -3,29 +3,26 @@
 <%@ include file="/WEB-INF/views/common/common.jsp" %>
 <body>
 	<div class="container">
-		<div class="text-center"><h3 class="mb-2">입양공고</h3></div>
+		<div class="text-center"><h3 class="mb-2">입양 공고</h3></div>
 			<div id="list">
 					<c:choose>
 						<c:when test="${not empty animalList }">
 							<c:forEach var="animal" items="${animalList }" varStatus="status">
-								<tr class = "text-center" data-num="${ animal.animalID}">
-									<td>${animal.animalID }</td>
-									<td class="goDetail text-start">
-									${animal.boardTitle}
-									<c:if test="${board.replyCnt > 0 }">
-										<span class="reply_count">[${board.replyCnt}]</span>
-									</c:if>
-									</td>
-									<td class="name">${board.boardName }</td>
-									<td class="text-start">${board.boardDate }</td>
-									<td class ="text-center">${board.readcnt }</td>
-								</tr>
+								<div class = "text-center" data-num="${ animal.animalID}">
+									<p>${animal.animalID }</p>
+									<p class="goDetail text-start">
+									${animal.animalName}
+									</p>
+									<p class="name">${animal.animalName }</p>
+									<p class="text-start">${animal.animalSpecies }
+									<p class ="text-center">${animal.animalGender }
+								</div>
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-						<tr>
-							<td colspan="5" class ="text-center">등록된 게시물이 존재하지 않습니다</td>
-						</tr>
+						
+							<p colspan="5" class ="text-center">등록된 게시물이 존재하지 않습니다</p>
+						
 						</c:otherwise>
 					</c:choose>	
 				</div>
