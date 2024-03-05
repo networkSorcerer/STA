@@ -16,11 +16,8 @@
 	</resultMap>
 	
 	<select id="animalList" parameterType="animal" resultMap="animalMap">
-		SELECT animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo,TO_CHAR(animal_regist, 'YYYY-MM-DD') AS a_date
+		SELECT animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo, TO_CHAR(animal_regist, 'YYYY-MM-DD') 
 		FROM animal
-		<where>
-			<include refid="boardSearch"></include>
-		</where>
 		ORDER BY animal_id DESC
 	</select>
 </mapper>
