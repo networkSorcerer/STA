@@ -3,7 +3,7 @@
 <mapper namespace="com.spring.animal.dao.animalDAO">
 	<resultMap type="animal" id="animalMap">
 		<id column="animal_id" property="animalID"/>
-		<!-- <result column="animal_species" property="animalSpecies"/>
+		<result column="animal_species" property="animalSpecies"/>
 		<result column="animal_age" property="animalAge"/>
 		<result column="animal_gender" property="animalGender"/>
 		<result column="animal_status" property="animalStatus"/>
@@ -12,7 +12,15 @@
 		<result column="animal_memo" property="animalMemo"/>
 		<result column="animal_temp" property="animalTemp"/>
 		<result column="animal_regist" property="animalRegist"/>
-		<result column="animal_name" property="animalName"/> -->
+		<result column="animal_name" property="animalName"/>
 	</resultMap>
-
+	
+	<select id="animalList" parameterType="animal" resultMap="animalMap">
+		SELECT animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo,TO_CHAR(animal_regist, 'YYYY-MM-DD') AS a_date
+		FROM animal
+		<where>
+			<include refid="boardSearch"></include>
+		</where>
+		ORDER BY animal_id DESC
+	</select>
 </mapper>
