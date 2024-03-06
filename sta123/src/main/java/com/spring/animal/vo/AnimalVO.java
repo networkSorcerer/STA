@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class AnimalVO extends CommonVO { 
-	private int animalID =0;
+	private int animalId =0;
 	private String animalSpecies;
 	private String animalAge;
 	private String animalGender;
@@ -19,4 +19,5 @@ public class AnimalVO extends CommonVO {
 	private String animalTemp;
 	private String animalRegist;
 	private String animalName;
+	private int readcnt =0;
 }

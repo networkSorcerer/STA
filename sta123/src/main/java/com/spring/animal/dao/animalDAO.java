@@ -2,10 +2,12 @@ package com.spring.animal.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.spring.animal.vo.AnimalVO;
 
 
-
+@Mapper
 public interface animalDAO {
 	public List<AnimalVO> animalList(AnimalVO avo);
 	/*
