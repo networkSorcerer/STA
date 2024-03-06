@@ -7,7 +7,7 @@
 		<div class="text-center"><h3>동물 리스트</h3></div>
 		
 		<form id="detailForm">
-			<input type="hidden" id="boardNumber" name="boardNumber"/>
+			<input type="hidden" id="animalId" name="animalId"/>
 		</form>
 		
 		<div id="animalSearch">

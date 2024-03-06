@@ -20,20 +20,20 @@ $(function(){
 	
 	
 	//삭제 버튼 클릭시 처리 이벤트
-	/*$("#boardDeleteBtn").on("click", ()=> {
+	$("#DeleteBtn").on("click", ()=> {
 		$("#f_data").attr({
 			"method":"post",
-			"action":"/board/boardDelete"
+			"action":"/animal/animalDelete"
 		});
 		$("#f_data").submit();
 		
 		$("#pwdChk").css("visibility", "visible");
 		btnInit();
 		buttonCheck = "deleteButton";
-	});*/
+	});
 	
 	//삭제 버튼 클릭시 댓글 확인 후 처리 이벤트
-	$("#boardDeleteBtn").on("click", ()=> {
+	/*$("#boardDeleteBtn").on("click", ()=> {
 		$.ajax({
 			url : "/board/replyCount",
 			type : "post",
@@ -53,20 +53,20 @@ $(function(){
 				}
 			}
 		});
-	});
+	});*/
 	
-	$("#boardPasswd").bind("keydown", function(event){
+	$("#animalPasswd").bind("keydown", function(event){
 		if(event.keyCode === 13) {
 			event.preventDefault();
 		}
 	});
 	
-	$("#boardPasswd").on("keyup", ()=>{
+	$("#animalPasswd").on("keyup", ()=>{
 		btnInit();
 	});
 	
 	$("#passwdCancelBtn").on("click", function(){
-		$("#boardPasswd").val("");
+		$("#animalPasswd").val("");
 		$("#pwdChk").css("visibility", "hidden");
 		buttonCheck = "";
 	});
@@ -74,7 +74,7 @@ $(function(){
 	
 	$("#passwdBtn").on("click", function(){
 		$.ajax({
-			url : "/board/pwdConfirm",
+			url : "/animal/pwdConfirm",
 			type : "post",
 			data : $("#f_passwdCheck").serialize(),
 			dataType : "text",
@@ -82,20 +82,20 @@ $(function(){
 				alert('시스템 오류입니다 . 관리자에게 문의 하세요');
 			},
 			beforeSend: function(){
-				if(!dataCheck("#boardPasswd", "#message", "비밀번호를")) return false;
+				if(!dataCheck("#animalPasswd", "#message", "비밀번호를")) return false;
 			},
 			success : function(resultData) {
 				if(resultData == "불일치") {
 					$("#message").addClass("text-danger");
 					$("#message").text("작성시 입력한 비밀번호가 일치하지 않습니다");
-					$("#boardPasswd").select();
+					$("#animalPasswd").select();
 				}else if (resultData == "일치") {
 					$("#message").text("");
 					if(buttonCheck=="updateButton") {
-						actionProcess("get", "/board/updateForm");
+						actionProcess("get", "/animal/updateForm");
 					}else if (buttonCheck=="deleteButton") {
 						if(confirm("정말 삭제하시겠습니까?")) {
-							actionProcess("post", "/board/boardDelete");
+							actionProcess("post", "/animal/animalDelete");
 						}
 					}
 				}
@@ -104,11 +104,11 @@ $(function(){
 	});
 	
 	$("#insertFormBtn").click(function(){
-		location.href = "/board/writeForm";
+		location.href = "/animal/writeForm";
 	});
 	
-	$("#boardListBtn").click(function(){
-		location.href="/board/boardList";
+	$("#animalListBtn").click(function(){
+		location.href="/animal/animalList";
 	});
 })
 

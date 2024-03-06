@@ -43,5 +43,44 @@ public class AnimalServiceImpl implements AnimalService{
 		}
 		return detail;
 	}
+	
+	@Override
+	public int animalInsert(AnimalVO avo) {
+		int result=0;
+		result = animalDAO.animalInsert(avo);
+		return result;
+	}
+	
+	
+	//수정 폼 구현
+		@Override
+		public AnimalVO updateForm(AnimalVO avo) {
+			AnimalVO updateData = null;
+			updateData = animalDAO.animalDetail(avo);
+			return updateData;
+		}
+		
+		//게시글 수정 구현 
+		@Override
+		public int animalUpdate(AnimalVO avo) {
+			int result = 0;
+			result = animalDAO.animalUpdate(avo);
+			return result;
+		}
+		
+		//비밀번호 확인 구현 
+		@Override
+		public int pwdConfirm(AnimalVO avo) {
+			int result = 0;
+			result = animalDAO.pwdConfirm(avo);
+			return result;
+		}
+
+		@Override
+		public int animalDelete(AnimalVO avo) {
+			int result = 0;
+			result = animalDAO.animalDelete(avo);
+			return result;
+		}
 
 }

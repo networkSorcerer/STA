@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/common.jspf" %>
+<%@ include file="/WEB-INF/views/common/common.jsp" %>
 <body>
   <div class="container">
     <div class = "text-center"><h1>게시판 수정 화면</h1></div>
@@ -51,9 +51,9 @@
 		</div>
     </form>
     <div class="text-end">
-    	<button type="button" id="boardUpdateBtn" class="btn btn-success btn-sm">수정</button>
-    	<button type="button" id="boardCancelBtn" class="btn btn-success btn-sm">취소</button>
-    	<button type="button" id="boardListBtn" class="btn btn-success btn-sm">목록</button>
+    	<button type="button" id="animalUpdateBtn" class="btn btn-success btn-sm">수정</button>
+    	<button type="button" id="animalCancelBtn" class="btn btn-success btn-sm">취소</button>
+    	<button type="button" id="animalListBtn" class="btn btn-success btn-sm">목록</button>
     </div>
   </div>
   <script src="/resources/include/js/updateForm.js"></script>

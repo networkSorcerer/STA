@@ -31,4 +31,6 @@
 		FROM animal
 		WHERE animal_id = #{animalId}
 	</select>
+	
+	
 </mapper>

@@ -15,8 +15,8 @@
 				<form name="f_passwdCheck" id="f_passwdCheck" class="row g-3">
 					<input type="hidden" name="animalId" value="${detail.animalId }"/>
 					<div class="col-auto">
-						<label for="boardPasswd" class="visually-hidden">비밀번호</label>
-						<input type="password" class="form-control" name="boardPasswd" id="boardPasswd" placeholder="비밀번호 입력" />
+						<label for="animalPasswd" class="visually-hidden">비밀번호</label>
+						<input type="password" class="form-control" name="animalPasswd" id="animalPasswd" placeholder="비밀번호 입력" />
 					</div>
 					<div class="col-auto">
 						<button type="button" class="btn btn-secondary btn-sm" id="passwdBtn">확인</button>
@@ -31,9 +31,9 @@
 
 			<div class="col-md-3 text-end">
 				<button type="button" id="updateFormBtn" class="btn btn-success btn-sm">글수정</button>
-				<button type="button" id="boardDeleteBtn" class="btn btn-success btn-sm">글삭제</button>
+				<button type="button" id="DeleteBtn" class="btn btn-success btn-sm">글삭제</button>
 				<button type="button" id="insertFormBtn" class="btn btn-success btn-sm">글쓰기</button>
-				<button type="button" id="boardListBtn" class="btn btn-success btn-sm">목록</button>
+				<button type="button" id="animalListBtn" class="btn btn-success btn-sm">목록</button>
 			</div>
 		</div>
 		
