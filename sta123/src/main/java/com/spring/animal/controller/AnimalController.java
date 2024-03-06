@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.spring.animal.service.AnimalService;
 import com.spring.animal.vo.AnimalVO;
 
+
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,11 +24,21 @@ public class AnimalController {
 	private AnimalService animalService;
 	
 	@GetMapping("/animalList")
-	public String boardList(@ModelAttribute AnimalVO avo, Model model) {
+	public String animalList(@ModelAttribute AnimalVO avo, Model model) {
 		log.info("animalList 호출 성공");
 		
 		List<AnimalVO> animalList = animalService.animalList(avo);
 		model.addAttribute("animalList", animalList);
 		return "project/animal/animalList";
+	}
+	
+	@GetMapping("/animalDetail")
+	public String animalDetail(@ModelAttribute AnimalVO avo, Model model) {
+		log.info("animalDetail 호출 성공");
+		
+		AnimalVO detail = animalService.animalDetail(avo);
+		model.addAttribute("detail", detail);
+		
+		return "project/animal/animalDetail";
 	}
 }

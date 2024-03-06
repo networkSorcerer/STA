@@ -7,10 +7,10 @@ import com.spring.animal.vo.AnimalVO;
 public interface AnimalService {
 	public List<AnimalVO> animalList(AnimalVO avo);
 	
-	public int readCntUpdate(AnimalVO avo); 
+	
 	public int animalListCnt(AnimalVO avo);
 	//public int boardInsert(AnimalVO avo); 
-	//public AnimalVO boardDetail(AnimalVO avo); 
+	public AnimalVO animalDetail(AnimalVO avo); 
 	
 	//public int pwdConfirm(AnimalVO avo); 
 	//public int boardUpdate(AnimalVO avo); 

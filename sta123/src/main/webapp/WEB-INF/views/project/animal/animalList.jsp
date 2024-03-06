@@ -10,7 +10,7 @@
 			<input type="hidden" id="boardNumber" name="boardNumber"/>
 		</form>
 		
-		<div id="boardSearch">
+		<div id="animalSearch">
 		    <form id="f_search" name="f_search">
 		        <div class="row g-2 align-items-center">
 		            <label for="search">검색조건</label>
@@ -18,9 +18,9 @@
 		        <div class="col-auto">
 		            <select id="search" name="search" class="form-select form-select-sm">
 		                <option value="all">전체 목록 조회</option>
-		                <option value="b_title">동물 ID</option>
-		                <option value="b_content">이름</option>
-		                <option value="b_name">분류</option>
+		                <option value="animal_id">동물 ID</option>
+		                <option value="animal_name">이름</option>
+		                <option value="animal_species">분류</option>
 		            </select>
 		        </div>
 		        <div class="col-auto">
@@ -33,7 +33,7 @@
 		</div>
 
 		
-		<div id="boardSearch" class="text-right"></div>
+		<div id="animalSearch" class="text-right"></div>
 		
 		<div id="animalList">
 			<table summary="게시판 리스트" class="table table-striped">
@@ -41,11 +41,11 @@
 					<tr class="text-center">
 						<th class="col-md-1">동물 ID</th>
 						<th class="col-md-1">이름</th>
-						<th class="col-md-2">분류</th>
+						<th class="col-md-1">분류</th>
 						<th class="col-md-1">무게</th>
 						<th class="col-md-1">중성화 유무</th>
 						<th class="col-md-1">성별</th>
-						<th class="col-md-1">작성일</th>
+						<th class="col-md-2">작성일</th>
 						<th class="col-md-1">조회수</th>
 					</tr>
 				</thead>
@@ -53,17 +53,17 @@
 					<c:choose>
 						<c:when test="${not empty animalList }">
 							<c:forEach var="animal" items="${animalList }" varStatus="status">
-								<tr class = "text-center" data-num="${ animal.animalId}">
+								<tr class = "text-center id" data-num="${ animal.animalId}">
 									<td>${animal.animalId}</td>
 									<td class="goDetail text-start">
 									${animal.animalName}
 									</td>
 									<td class="species">${animal.animalSpecies }</td>
-									<td class="species">${animal.animalKg }</td>
-									<td class="species">${animal.animalStatus }</td>
-									<td class="species">${animal.animalGender }</td>
-									<td class="text-start">${animal.animalRegist}</td>
-									<td class ="text-center">${animal.readcnt }</td>
+									<td class="kg">${animal.animalKg }</td>
+									<td class="status">${animal.animalStatus }</td>
+									<td class="gender">${animal.animalGender }</td>
+									<td class="regist">${animal.animalRegist}</td>
+									<td class ="readcnt">${animal.readcnt }</td>
 									
 							</c:forEach>
 						</c:when>
@@ -85,16 +85,17 @@
 	<script>
 		$(function(){
 			/* 검색 후 검색 대상과 검색 단어 출력 */
-			let word="<c:out value='${boardVO.keyword}' />";
+			let word="<c:out value='${animalVO.keyword}' />";
 			let value="";
 			if(word!=""){
-				$("#keyword").val("<c:out value='${boardVO.keyword}' />");
-				$("#search").val("<c:out value='${boardVO.search}' />");
+				$("#keyword").val("<c:out value='${animalVO.keyword}' />");
+				$("#search").val("<c:out value='${animalVO.search}' />");
 			
-				if($("#search").val()!='b_content'){
+				if($("#search").val()!='animal_status'){
 					//:contains()는 특정 텍스트를 포함한 요소반환 	
-					if($("#search").val()=='b_title') value = "#list tr td.goDetail";
-					else if($("#search").val()=='b_name') value="#list tr td.name";
+					if($("#search").val()=='animal_name') value = "#list tr td.goDetail";
+					else if($("#search").val()=='animal_id') value="#list tr td.id";
+					else if($("#search").val()=='animal_species')value="#list tr td.species"
 					console.log($(value+":contains('"+word+"')").html());
 					//$("#list tr td.goDetail:contains('노력')").html()  => <span class='required'>노력</span>에 대한 명언
 			    	$(value+":contains('"+word+"')").each(function () {

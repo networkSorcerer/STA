@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.animal.dao.animalDAO;
 import com.spring.animal.vo.AnimalVO;
-import com.spring.client.board.vo.BoardVO;
+
 
 import lombok.Setter;
 
@@ -25,9 +25,23 @@ public class AnimalServiceImpl implements AnimalService{
 		return list;
 	}
 	
-	@Override
+	@Override//통과
 	public int animalListCnt(AnimalVO bvo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
+
+	@Override
+	public AnimalVO animalDetail(AnimalVO avo) {
+		animalDAO.readCntUpdate(avo);
+		
+		AnimalVO detail = animalDAO.animalDetail(avo);
+		if(detail != null) {
+			detail.setAnimalMemo(detail.getAnimalMemo().replaceAll("\n", "<br/>"));
+		}
+		return detail;
+	}
+
 }

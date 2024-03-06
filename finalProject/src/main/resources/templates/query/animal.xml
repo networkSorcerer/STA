@@ -19,8 +19,16 @@
 		SELECT animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo,TO_CHAR(animal_regist, 'YYYY-MM-DD') AS a_date
 		FROM animal
 		<where>
-			<include refid="boardSearch"></include>
+			<include refid="animalSearch"></include>
 		</where>
 		ORDER BY animal_id DESC
+	</select>
+	
+	<select id="animalDetail" parameterType="animal" resultMap="animalMap">
+		SELECT
+			animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo,
+			TO_CHAR(animal_regist, 'YYYY-MM-DD HH24:MI:SS') AS animal_regist, readcnt
+		FROM animal
+		WHERE animal_id = #{animalId}
 	</select>
 </mapper>
