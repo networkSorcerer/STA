@@ -1,5 +1,7 @@
 package com.spring.animal.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.spring.common.vo.CommonVO;
 
 import lombok.Data;
@@ -20,5 +22,8 @@ public class AnimalVO extends CommonVO {
 	private String animalRegist;
 	private String animalName="";
 	private String animalPasswd="";
-	private int readcnt =0;
+	private int readcnt=0;
+	
+	private MultipartFile file;
+	private String animalFile = "";
 }

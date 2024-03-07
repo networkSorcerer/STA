@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.animal.dao.animalDAO;
 import com.spring.animal.vo.AnimalVO;
-
+import com.spring.common.file.FileUploadUtil;
 
 import lombok.Setter;
 
@@ -31,8 +31,6 @@ public class AnimalServiceImpl implements AnimalService{
 		return 0;
 	}
 
-	
-
 	@Override
 	public AnimalVO animalDetail(AnimalVO avo) {
 		animalDAO.readCntUpdate(avo);
@@ -45,8 +43,12 @@ public class AnimalServiceImpl implements AnimalService{
 	}
 	
 	@Override
-	public int animalInsert(AnimalVO avo) {
+	public int animalInsert(AnimalVO avo) throws Exception{
 		int result=0;
+		if(avo.getFile().getSize() > 0 ) {
+			String fileName = FileUploadUtil.fileUpload(avo.getFile(), "animal");
+			avo.setAnimalFile(fileName);
+		}
 		result = animalDAO.animalInsert(avo);
 		return result;
 	}
@@ -62,8 +64,15 @@ public class AnimalServiceImpl implements AnimalService{
 		
 		//게시글 수정 구현 
 		@Override
-		public int animalUpdate(AnimalVO avo) {
+		public int animalUpdate(AnimalVO avo) throws Exception{
 			int result = 0;
+			if(!avo.getFile().isEmpty()) {
+				if(!avo.getAnimalFile().isEmpty()) {
+					FileUploadUtil.fileDelete(avo.getAnimalFile());
+				}
+				String fileName = FileUploadUtil.fileUpload(avo.getFile(),"animal");
+				avo.setAnimalFile(fileName);
+			}
 			result = animalDAO.animalUpdate(avo);
 			return result;
 		}
@@ -77,8 +86,11 @@ public class AnimalServiceImpl implements AnimalService{
 		}
 
 		@Override
-		public int animalDelete(AnimalVO avo) {
+		public int animalDelete(AnimalVO avo) throws Exception {
 			int result = 0;
+			if(!avo.getAnimalFile().isEmpty()) {
+				FileUploadUtil.fileDelete(avo.getAnimalFile());
+			}
 			result = animalDAO.animalDelete(avo);
 			return result;
 		}

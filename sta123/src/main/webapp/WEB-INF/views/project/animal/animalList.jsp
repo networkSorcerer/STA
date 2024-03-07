@@ -16,7 +16,7 @@
 		            <label for="search">검색조건</label>
 		        </div>
 		        <div class="col-auto">
-		            <select id="search" name="search" class="form-select form-select-sm">
+		            <select id="search" name="search" class="form-select form-select-sm" >
 		                <option value="all">전체 목록 조회</option>
 		                <option value="animal_id">동물 ID</option>
 		                <option value="animal_name">이름</option>
@@ -24,7 +24,7 @@
 		            </select>
 		        </div>
 		        <div class="col-auto">
-		            <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" class="form-control form-control-sm"/>
+		            <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" class="form-control form-control-sm" />
 		        </div>
 		        <div class="col-auto">
 		            <button type="button" id="searchData" class="btn btn-success btn-sm">검색</button>
@@ -54,7 +54,18 @@
 						<c:when test="${not empty animalList }">
 							<c:forEach var="animal" items="${animalList }" varStatus="status">
 								<tr class = "text-center id" data-num="${ animal.animalId}">
+									
 									<td>${animal.animalId}</td>
+									<td>
+										<c:if test="${not empty animal.animalFile }">
+											<img src="/uploadStorage/animal/${animal.animalFile}"
+											class="rounded w-50 h-50"/>
+										</c:if>
+										<c:if test="${empty board.boardFile }">
+											<img src="/resources/images/common/noimage.jpg"
+											class="rounded w-100 h-100"/>
+										</c:if>
+									</td>
 									<td class="goDetail text-start">
 									${animal.animalName}
 									</td>

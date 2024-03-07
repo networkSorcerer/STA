@@ -78,7 +78,12 @@
                         name="animalPasswd" placeholder="비밀번호를 입력하세요." maxlength="16">
                 </div>
             </div>
-            
+             <div class="mb-3 row">
+                <label for="file" class="col-sm-2 col-form-label">첨부파일</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="file" name="file" >
+                </div>
+            </div>      
         </form>
         <div class="text-end">
                 <button type="button" class="btn btn-primary" id="animalInsertBtn">저장</button>

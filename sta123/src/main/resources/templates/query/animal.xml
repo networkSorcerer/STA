@@ -14,11 +14,15 @@
 		<result column="animal_regist" property="animalRegist"/>
 		<result column="animal_name" property="animalName"/>
 		<result column="animal_passwd" property="animalPasswd"/>
-		<result column="admin_id" property="adminId"/>	
+		<result column="admin_id" property="adminId"/>
+		<result column="readcnt" property="readcnt"/>
+		<result column="animal_file" property="animalFile"/>	
 	</resultMap>
 	
 	<select id="animalList" parameterType="animal" resultMap="animalMap">
-		SELECT animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp, TO_CHAR(animal_regist, 'YYYY-MM-DD') AS animal_regist 
+		SELECT animal_id, animal_species, animal_name, animal_gender,animal_status,
+		animal_kg,animal_color,animal_temp,readcnt, 
+		TO_CHAR(animal_regist, 'YYYY-MM-DD') AS animal_regist,animal_file 
 		FROM animal
 		<where>
 			<include refid="animalSearch"></include>
@@ -44,16 +48,16 @@
 		<selectKey keyProperty="animalId" resultType="int" order="BEFORE">
 			select animal_seq.nextval from dual
 		</selectKey>
-		INSERT INTO animal(animal_id,animal_name, animal_species,animal_gender,animal_kg,animal_age,  animal_status,animal_memo,animal_color,animal_temp,animal_passwd)
-		VALUES(#{animalId},#{animalName}, #{animalSpecies},#{animalGender},#{animalKg},#{animalAge} , #{animalStatus},#{animalMemo},#{animalColor},#{animalTemp},#{animalPasswd})
+		INSERT INTO animal(animal_id, animal_name, animal_species,animal_gender, animal_kg, animal_age,  animal_status,animal_memo,animal_color,animal_temp,animal_passwd,animal_file)
+		VALUES(#{animalId}, #{animalName}, #{animalSpecies},#{animalGender},#{animalKg},#{animalAge} , #{animalStatus},#{animalMemo},#{animalColor},#{animalTemp},#{animalPasswd},#{animal_file})
 	</insert>
 	
 	
 	
 	<select id="animalDetail" parameterType="animal" resultMap="animalMap">
 		SELECT
-			animal_id, animal_species, animal_name, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo,
-			TO_CHAR(animal_regist, 'YYYY-MM-DD HH24:MI:SS') AS animal_regist, readcnt
+			animal_id, animal_species, animal_name, animal_age, animal_gender,animal_status,animal_kg,animal_color,animal_temp,animal_memo,
+			TO_CHAR(animal_regist, 'YYYY-MM-DD HH24:MI:SS') AS animal_regist, readcnt, animal_file
 		FROM animal
 		WHERE animal_id = #{animalId}
 	</select>
@@ -61,29 +65,34 @@
 	<select id="pwdConfirm" parameterType="animal" resultType="int">
 		SELECT NVL((
 					SELECT 1 FROM animal
-					WHERE animal_id = #{animalId}AND animal_passwd = #{animalPasswd}
+					WHERE animal_id = #{animalId} AND animal_passwd = #{animalPasswd}
 					), 0) as state
 		FROM dual
 	</select>
 	
 	<update id="animalUpdate" parameterType="animal">
-		UPDATE animal_id
-		SET  = #{animalId},
-			animal_memo = #{animalMemo},
-			animal_regist = sysdate,
-			animal_species = #{animalSpecies},
-			animal_name = #{animalName},
-			animal_gender =	#{animalGender},
-			animal_kg = #{animalKg},
-			animal_age =  #{animalAge},
-			animal_status = #{animalStatus},
-			animal_color = #{animalColor},
-			animal_temp = #{animalTemp}
-			<if test ="animalPasswd != ''">
-				, animal_passwd = #{animalPasswd}
-			</if>
-		WHERE animal_id = #{animalId}
+	    UPDATE animal
+	    SET 
+	        animal_name = #{animalName},
+	        animal_species = #{animalSpecies},
+	        animal_gender = #{animalGender},
+	        animal_kg = #{animalKg},
+	        animal_age = #{animalAge},
+	        animal_color = #{animalColor},
+	        animal_status = #{animalStatus},
+	        animal_memo = #{animalMemo},
+	        animal_temp = #{animalTemp},
+	        animal_regist = sysdate
+	        <if test="animalPasswd != ''">
+	            , animal_passwd = #{animalPasswd}
+	        </if>
+	        <if test="animalPasswd != ''">
+	        	, animal_file = #{animalFile}
+	        </if>
+	    WHERE animal_id =#{animalId}
 	</update>
+
+
 	
 	<delete id ="animalDelete" parameterType="animal">
 		DELETE FROM animal WHERE animal_id = #{animalId}

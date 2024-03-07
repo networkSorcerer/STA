@@ -11,6 +11,7 @@ $(function(){
 		else {
 			$("#f_writeForm").attr({
 				"method":"post",
+				"enctype":"multipart/form-data",
 				"action":"/animal/animalInsert"
 			});
 			$("#f_writeForm").submit();

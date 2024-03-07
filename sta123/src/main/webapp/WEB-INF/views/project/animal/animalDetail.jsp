@@ -7,6 +7,7 @@
 		
 		<form name="f_data" id="f_data">
 			<input type="hidden" name="animalId" value="${detail.animalId }"/>
+			<input type="hidden" name="animalFile" id="animalFile" value="${detail.animalFile}"/>
 		</form>
 		
 		
@@ -68,6 +69,14 @@
 									<td class="text-start">${detail.animalKg }</td>
 								</tr>
 								<tr>
+									<td>나이</td>
+									<td class="text-start">${detail.animalAge }</td>
+								</tr>
+								<tr>
+									<td>색깔</td>
+									<td class="text-start">${detail.animalColor }</td>
+								</tr>
+								<tr>
 									<td>중성화 유무</td>
 									<td class="text-start">${detail.animalStatus }</td>
 								</tr>
@@ -79,6 +88,14 @@
 									<td>임시보호 유무</td>
 									<td class="text-start">${detail.animalTemp }</td>
 								</tr>
+								<c:if test="${not empty detail.animalFile }">
+									<tr>
+										<td class="align-middle">이미지</td>
+										<td class="text-start">
+											<img src="/uploadStorage/animal/${detail.animalFile }" class="rounded" width="500px"/>
+										</td>
+									</tr>
+								</c:if>
 							</table>
 						</td>
 					</tr>

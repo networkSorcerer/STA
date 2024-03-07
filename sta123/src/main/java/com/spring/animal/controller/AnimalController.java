@@ -46,7 +46,7 @@ public class AnimalController {
 	}
 	
 	@PostMapping("/animalInsert")
-	public String animalInsert(AnimalVO avo) {
+	public String animalInsert(AnimalVO avo)throws Exception{
 		log.info("animalInsert 호출 성공 ");
 		animalService.animalInsert(avo);
 		return "redirect:/animal/animalList";
@@ -71,7 +71,7 @@ public class AnimalController {
 	}
 	
 	@PostMapping("/animalUpdate")
-	public String animalUpdate(@ModelAttribute AnimalVO avo) {
+	public String animalUpdate(@ModelAttribute AnimalVO avo)throws Exception {
 		log.info("animalUpdate 호출 성공");
 		
 		int result=0;
@@ -88,7 +88,7 @@ public class AnimalController {
 	}
 	
 	@PostMapping(value="/animalDelete")
-	public String animalDelete(@ModelAttribute AnimalVO avo, RedirectAttributes ras) {
+	public String animalDelete(@ModelAttribute AnimalVO avo, RedirectAttributes ras)throws Exception {
 		log.info("animalDelete 호출 성공");
 		
 		int result = 0;
