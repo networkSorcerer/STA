@@ -87,21 +87,27 @@ public class AnimalController {
 		return "redirect:" + url;
 	}
 	
+//	@PostMapping(value="/animalDelete")
+//	public String animalDelete(@ModelAttribute AnimalVO avo, RedirectAttributes ras)throws Exception {
+//		log.info("animalDelete 호출 성공");
+//		
+//		int result = 0;
+//		String url = "";
+//		result = animalService.animalDelete(avo);
+//		
+//		if(result == 1) {
+//			url ="/animal/animalList";
+//		}else {
+//			ras.addFlashAttribute("errorMsg", "삭제에 문제가 있어 다시 진행해 주세요");
+//			url="/animal/animalDetail?animalId="+avo.getAnimalId();
+//		}
+//		return "redirect:"+url;
+//	}
 	@PostMapping(value="/animalDelete")
-	public String animalDelete(@ModelAttribute AnimalVO avo, RedirectAttributes ras)throws Exception {
+	public String animalDelete(@ModelAttribute AnimalVO avo) throws Exception {
 		log.info("animalDelete 호출 성공");
-		
-		int result = 0;
-		String url = "";
-		result = animalService.animalDelete(avo);
-		
-		if(result == 1) {
-			url ="/animal/animalList";
-		}else {
-			ras.addFlashAttribute("errorMsg", "삭제에 문제가 있어 다시 진행해 주세요");
-			url="/animal/animalDetail?animalId="+avo.getAnimalId();
-		}
-		return "redirect:"+url;
+		animalService.animalDelete(avo);
+		return "redirect:/animal/animalList";
 	}
 	
 	@ResponseBody

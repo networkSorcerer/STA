@@ -8,7 +8,7 @@ import com.spring.animal.vo.AnimalVO;
 
 
 @Mapper
-public interface animalDAO {
+public interface AnimalDAO {
 	public List<AnimalVO> animalList(AnimalVO avo);
 	public int animalInsert(AnimalVO avo); 
 	public AnimalVO animalDetail(AnimalVO avo);

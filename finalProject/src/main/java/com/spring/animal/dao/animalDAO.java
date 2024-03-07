@@ -6,7 +6,7 @@ import com.spring.animal.vo.AnimalVO;
 
 
 
-public interface animalDAO {
+public interface AnimalDAO {
 	public List<AnimalVO> animalList(AnimalVO avo);
 	/*
 	 * public int boardInsert(AnimalVO avo); public AnimalVO boardDetail(AnimalVO

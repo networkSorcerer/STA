@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.animal.dao.animalDAO;
+import com.spring.animal.dao.AnimalDAO;
 import com.spring.animal.vo.AnimalVO;
 import com.spring.common.file.FileUploadUtil;
 
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Service
 public class AnimalServiceImpl implements AnimalService{
 	@Setter(onMethod_=@Autowired)
-	private animalDAO animalDAO;
+	private AnimalDAO animalDAO;
 	
 	
 	//글 목록 구현 

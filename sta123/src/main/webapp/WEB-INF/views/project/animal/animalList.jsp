@@ -40,6 +40,7 @@
 				<thead>
 					<tr class="text-center">
 						<th class="col-md-1">동물 ID</th>
+						<th class="col-md-1">사진</th>
 						<th class="col-md-1">이름</th>
 						<th class="col-md-1">분류</th>
 						<th class="col-md-1">무게</th>
@@ -61,7 +62,7 @@
 											<img src="/uploadStorage/animal/${animal.animalFile}"
 											class="rounded w-50 h-50"/>
 										</c:if>
-										<c:if test="${empty board.boardFile }">
+										<c:if test="${empty animal.animalFile }">
 											<img src="/resources/images/common/noimage.jpg"
 											class="rounded w-100 h-100"/>
 										</c:if>

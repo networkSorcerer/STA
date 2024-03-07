@@ -9,6 +9,9 @@ $(function(){
 		else if(!chkData("#animalTemp","임시보호 유무를")) return;
 		else if(!chkData("#animalPasswd","비밀번호를")) return;
 		else {
+			if($("#file").val()!=""){
+				if(!chkFile($("#file"))) return;
+			}
 			$("#f_writeForm").attr({
 				"method":"post",
 				"enctype":"multipart/form-data",
