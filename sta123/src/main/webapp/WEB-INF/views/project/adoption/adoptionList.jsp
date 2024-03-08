@@ -52,7 +52,7 @@
 				<tbody id="list">
 					<c:choose>
 						<c:when test="${not empty adoptionList }">
-							<c:forEach var="animal" items="${adoptionList }" varStatus="status">
+							<c:forEach var="adoption" items="${adoptionList }" varStatus="status">
 								<tr class = "text-center id" data-num="${ adoption.adoptionId}">
 									
 									<td class="id">${adoption.adoptionId}</td>

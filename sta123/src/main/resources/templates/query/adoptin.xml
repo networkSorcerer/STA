@@ -11,7 +11,8 @@
 		<result column="adoption_level" property="adoptionLevel"/>
 		<result column="adoption_file" property="adoptionFile"/>
 		<result column="animal_id" property="animalId"/>
-		<result column="animal_name" property="animalName"/>	
+		<result column="animal_name" property="animalName"/>
+		<result column="adoption_passwd" property="aoptionPasswd"/>
 	</resultMap>
 	
 	<select id="adoptionList" parameterType="adoption" resultMap="adoptionMap">
@@ -37,7 +38,20 @@
    			</trim> 
 	</select>
 
-	
+	<sql id="adoptionSearch">
+		<if test="search=='adoption_id'">
+			<![CDATA[adoption_id LIKE '%'||#{keyword} || '%']]>
+		</if>
+		<if test="search=='animal_id'">
+			<![CDATA[animal_id LIKE '%' || #{keyword}||'%']]>
+		</if>
+		<if test="search=='animal_name'">
+			<![CDATA[animal_name LIKE '%' || #{keyword} || '%']]>
+		</if>
+		<if test="search=='adoption_status'">
+			<![CDATA[adoption_status LIKE '%' || #{keyword} || '%']]>
+		</if>
+	</sql>
 	<!-- <insert id="animalInsert" parameterType="animal">
 		<selectKey keyProperty="animalId" resultType="int" order="BEFORE">
 			select animal_seq.nextval from dual
@@ -91,20 +105,7 @@
 		DELETE FROM animal WHERE animal_id = #{animalId}
 	</delete> -->
 		
-	<sql id="adoptionSearch">
-		<if test="search=='adoption_id'">
-			<![CDATA[adoption_id LIKE '%'||#{keyword} || '%']]>
-		</if>
-		<if test="search=='animal_id'">
-			<![CDATA[animal_id LIKE '%' || #{keyword}||'%']]>
-		</if>
-		<if test="search=='animal_name'">
-			<![CDATA[animal_name LIKE '%' || #{keyword} || '%']]>
-		</if>
-		<if test="search=='adoption_status'">
-			<![CDATA[adoption_status LIKE '%' || #{keyword} || '%']]>
-		</if>
-	</sql>
+	
 		
 		
 		
@@ -141,6 +142,4 @@
 			</if>
 		</where>
 	</select> -->
-	
-	
 </mapper>

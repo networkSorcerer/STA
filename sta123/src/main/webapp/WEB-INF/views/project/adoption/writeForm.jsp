@@ -4,78 +4,41 @@
 <body>
     <div class="container">
         <div class="text-center">
-            <h3>게시판 입력화면</h3>
+            <h3>입양 공고 입력화면</h3>
         </div>
         <form id="f_writeForm">
             <div class="mb-3 row">
-                <label for="animalName" class="col-sm-2 col-form-label">동물 이름</label>
+                <label for="adoptionTitle" class="col-sm-2 col-form-label">공고 제목</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="animalName"
-                        name="animalName" placeholder="동물이름을 입력하세요."
+                    <input type="text" class="form-control" id="adoptionTitle"
+                        name="adoptionTitle" placeholder="공고 제목을 입력하세요."
                         data-type="CDATA">
                 </div>
             </div>
-            <div class="mb-3 row">
-                <label for="animalSpecies" class="col-sm-2 col-form-label">분류</label>
+             <div class="mb-3 row">
+                <label for="adoptionContent" class="col-sm-2 col-form-label">공고 내용</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="animalSpecies"
-                        name="animalSpecies" placeholder="분류를 적어주세요">
+                    <textarea name="adoptionContent" id="adoptionContent"
+                        class="form-control" rows="5"></textarea>
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="animalGender" class="col-sm-2 col-form-label">성별</label>
+                <label for="adoptionStatus" class="col-sm-2 col-form-label">공고 상태</label>
                 <div class="col-sm-10">
-                    <textarea name="animalGender" id="animalGender"
-                        class="form-control" rows="1"></textarea>
+                    <select name="adoptionStatus" id="adoptionStatus"
+                        class="form-control" >
+                    	<option>1.공고 중</option>
+                    	<option>2.상담 중</option>
+                    	<option>3.입양 완료</option>
+                    </select>
                 </div>
             </div>
+            
             <div class="mb-3 row">
-                <label for="animalKg" class="col-sm-2 col-form-label">무게</label>
-                <div class="col-sm-10">
-                    <textarea name="animalKg" id="animalKg"
-                        class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="animalAge" class="col-sm-2 col-form-label">나이</label>
-                <div class="col-sm-10">
-                    <textarea name="animalAge" id="animalAge"
-                        class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="animalColor" class="col-sm-2 col-form-label">색깔</label>
-                <div class="col-sm-10">
-                    <textarea name="animalColor" id="animalColor"
-                        class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="animalStatus" class="col-sm-2 col-form-label">중성화 유무</label>
-                <div class="col-sm-10">
-                    <textarea name="animalStatus" id="animalStatus"
-                        class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="animalMemo" class="col-sm-2 col-form-label">특이 사항</label>
-                <div class="col-sm-10">
-                    <textarea name="animalMemo" id="animalMemo"
-                        class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="animalTemp" class="col-sm-2 col-form-label">임시보호 유무</label>
-                <div class="col-sm-10">
-                    <textarea name="animalTemp" id="animalTemp"
-                        class="form-control" rows="1"></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="animalPasswd" class="col-sm-2 col-form-label">비밀번호</label>
+                <label for="adoptionPasswd" class="col-sm-2 col-form-label">비밀번호</label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="animalPasswd"
-                        name="animalPasswd" placeholder="비밀번호를 입력하세요." maxlength="16">
+                        name="adoptionPasswd" placeholder="비밀번호를 입력하세요." maxlength="16">
                 </div>
             </div>
              <div class="mb-3 row">
@@ -86,12 +49,12 @@
             </div>      
         </form>
         <div class="text-end">
-                <button type="button" class="btn btn-primary" id="animalInsertBtn">저장</button>
-                <button type="button" class="btn btn-secondary" id="animalCancelBtn">취소</button>
-                <button type="button" class="btn btn-success" id="animalListBtn">목록</button>
+                <button type="button" class="btn btn-primary" id="adoptionInsertBtn">저장</button>
+                <button type="button" class="btn btn-secondary" id="adoptionCancelBtn">취소</button>
+                <button type="button" class="btn btn-success" id="adoptionListBtn">목록</button>
         </div>
     </div>
-    <script src="/resources/include/js/writeForm.js"></script>
+    <script src="/resources/include/js/adoptionWriteForm.js"></script>
     <script>
     $(function(){
     	let errorMsg = "${errorMsg}";

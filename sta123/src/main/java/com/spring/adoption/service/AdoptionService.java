@@ -7,7 +7,7 @@ import com.spring.adoption.vo.AdoptionVO;
 public interface AdoptionService {
 	public List<AdoptionVO> adoptionList(AdoptionVO adoptionvo);
 	
-//	public int adoptionListCnt(AdoptionVO avo);
+	public int adoptionListCnt(AdoptionVO avo);
 //	public AdoptionVO adoptionDetail(AdoptionVO avo); 
 //	public int pwdConfirm(AdoptionVO avo);
 //	public AdoptionVO updateForm(AdoptionVO bvo);

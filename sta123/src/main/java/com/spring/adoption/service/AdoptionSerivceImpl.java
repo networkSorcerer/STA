@@ -29,11 +29,11 @@ public class AdoptionSerivceImpl implements AdoptionService{
 
 	
 	
-//	@Override//통과
-//	public int animalListCnt(AnimalVO bvo) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
+	@Override//통과
+	public int adoptionListCnt(AdoptionVO bvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 //
 //	@Override
 //	public AnimalVO animalDetail(AnimalVO avo) {
