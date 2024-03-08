@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/views/common/common.jsp" %>
 <body>
 	<div class="container">
-		<div class="text-center"><h3>게시판 상세화면</h3></div>
+		<div class="text-center"><h3>동물 리스트 상세 목록</h3></div>
 		
 		<form name="f_data" id="f_data">
 			<input type="hidden" name="animalId" value="${detail.animalId }"/>
