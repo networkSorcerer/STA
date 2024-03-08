@@ -141,5 +141,8 @@
 		<if test="search=='animal_species'">
 			<![CDATA[animal_species LIKE '%' || #{keyword} || '%']]>
 		</if>
+		<if test="search=='animal_temp'">
+			<![CDATA[animal_temp LIKE '%' || #{keyword} || '%']]>
+		</if>
 	</sql>
 </mapper>

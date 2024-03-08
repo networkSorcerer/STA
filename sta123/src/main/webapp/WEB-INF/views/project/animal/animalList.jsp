@@ -21,6 +21,7 @@
 		                <option value="animal_id">동물 ID</option>
 		                <option value="animal_name">이름</option>
 		                <option value="animal_species">분류</option>
+		                <option value="animal_temp">임시 보호 유무</option>
 		            </select>
 		        </div>
 		        <div class="col-auto">
@@ -46,6 +47,7 @@
 						<th class="col-md-1">무게</th>
 						<th class="col-md-1">중성화 유무</th>
 						<th class="col-md-1">성별</th>
+						<th class="col-md-1">임시보호 유무</th>
 						<th class="col-md-2">작성일</th>
 						<th class="col-md-1">조회수</th>
 					</tr>
@@ -74,6 +76,7 @@
 									<td class="kg">${animal.animalKg }</td>
 									<td class="status">${animal.animalStatus }</td>
 									<td class="gender">${animal.animalGender }</td>
+									<td class="temp0">${animal.animalTemp }</td>
 									<td class="regist">${animal.animalRegist}</td>
 									<td class ="readcnt">${animal.readcnt }</td>
 									
@@ -108,6 +111,7 @@
 					if($("#search").val()=='animal_name') value = "#list tr td.goDetail";
 					else if($("#search").val()=='animal_id') value="#list tr td.id";
 					else if($("#search").val()=='animal_species')value="#list tr td.species"
+					else if($("#search").val()=='animal_temp')value="#list tr td.temp"
 					console.log($(value+":contains('"+word+"')").html());
 					//$("#list tr td.goDetail:contains('노력')").html()  => <span class='required'>노력</span>에 대한 명언
 			    	$(value+":contains('"+word+"')").each(function () {

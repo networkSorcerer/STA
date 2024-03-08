@@ -67,8 +67,11 @@
             <div class="mb-3 row">
                 <label for="animalTemp" class="col-sm-2 col-form-label">임시보호 유무</label>
                 <div class="col-sm-10">
-                    <textarea name="animalTemp" id="animalTemp"
-                        class="form-control" rows="1"></textarea>
+                    <select name="animalTemp" id="animalTemp" class="form-control">
+                    	<option>1.입양 가능</option>
+                    	<option>2.임시 보호</option>
+                    	<option>3.치료 중</option>
+                    </select>
                 </div>
             </div>
             <div class="mb-3 row">

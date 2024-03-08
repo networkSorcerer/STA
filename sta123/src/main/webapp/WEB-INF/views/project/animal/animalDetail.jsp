@@ -30,7 +30,7 @@
 			</div>
 			
 
-			<div class="col-md-3 text-end">
+			<div class="col-md-10 text-end">
 				<button type="button" id="updateFormBtn" class="btn btn-success btn-sm">글수정</button>
 				<button type="button" id="DeleteBtn" class="btn btn-success btn-sm">글삭제</button>
 				<button type="button" id="insertFormBtn" class="btn btn-success btn-sm">글쓰기</button>
@@ -42,6 +42,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
+						
 						<td class="col_3">동물 ID</td>
 						<td>${detail.animalId }(조회수 : ${detail.readcnt })</td>
 						<td>작성일</td>
@@ -52,7 +53,13 @@
 					<tr>
 						<td colspan="4">
 							<table class="table mb-0">
+								
 								<tr>
+									<c:if test="${not empty detail.animalFile }">		
+										<td class="text-start" rowspan="9">
+											<img src="/uploadStorage/animal/${detail.animalFile }" class="rounded" width="300px"/>
+										</td>		
+									</c:if>
 									<td class="col-3">이름</td>
 									<td class="text-start">${detail.animalName }</td>
 								</tr>
@@ -88,14 +95,6 @@
 									<td>임시보호 유무</td>
 									<td class="text-start">${detail.animalTemp }</td>
 								</tr>
-								<c:if test="${not empty detail.animalFile }">
-									<tr>
-										<td class="align-middle">이미지</td>
-										<td class="text-start">
-											<img src="/uploadStorage/animal/${detail.animalFile }" class="rounded" width="500px"/>
-										</td>
-									</tr>
-								</c:if>
 							</table>
 						</td>
 					</tr>
