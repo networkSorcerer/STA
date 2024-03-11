@@ -72,7 +72,11 @@
 		        <tr>
 		          	<th>임시보호 유무</th>
 		          	<td class="text-start">
-		            <textarea name="animalTemp" id="animalTemp"  class="form-control">${updateData.animalTemp }</textarea>
+		            <select name="animalTemp" id="animalTemp" class="form-control">
+                    	<option>1.입양 가능</option>
+                    	<option>2.임시 보호</option>
+                    	<option>3.치료 중</option>
+                    </select>
 		          	</td>
 		        </tr>
 		        <tr>

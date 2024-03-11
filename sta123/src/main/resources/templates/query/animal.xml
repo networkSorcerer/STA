@@ -85,7 +85,7 @@
 	        <if test="animalPasswd != ''">
 	            , animal_passwd = #{animalPasswd}
 	        </if>
-	        <if test="animalPasswd != ''">
+	        <if test="animalFile != ''">
 	        	, animal_file = #{animalFile}
 	        </if>
 	    WHERE animal_id =#{animalId}
