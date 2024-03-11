@@ -9,7 +9,7 @@ public interface AdoptionService {
 	
 	public int adoptionListCnt(AdoptionVO adoptionvo);
 	public AdoptionVO adoptionDetail(AdoptionVO adoptionvo); 
-	public int pwdConfirm(AdoptionVO adoptionvo);
+	public int adoptionPwdConfirm(AdoptionVO adoptionvo);
 	public AdoptionVO adoptionUpdateForm(AdoptionVO adoptionvo);
 	
 	

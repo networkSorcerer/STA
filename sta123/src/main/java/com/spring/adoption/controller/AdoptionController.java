@@ -112,11 +112,11 @@ public class AdoptionController {
 	}
 	
 	@ResponseBody
-	@PostMapping(value="/pwdConfirm", produces = "text/plain; charset=UTF-8")
-	public String pwdConfirm(AdoptionVO adoptionvo) {
+	@PostMapping(value="/adoptionPwdConfirm", produces = "text/plain; charset=UTF-8")
+	public String adoptionPwdConfirm(AdoptionVO adoptionvo) {
 		log.info("pwdConfirm 호출 성공");
 		
-		int result = adoptionService.pwdConfirm(adoptionvo);
+		int result = adoptionService.adoptionPwdConfirm(adoptionvo);
 		String value="";
 		if(result==1) {
 			value="일치";

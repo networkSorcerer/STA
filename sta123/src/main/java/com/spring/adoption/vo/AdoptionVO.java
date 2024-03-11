@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper=false)
 public class AdoptionVO extends CommonVO{
 	private int adoptionId=0;
 	private String adoptionContent="";
@@ -20,6 +20,7 @@ public class AdoptionVO extends CommonVO{
 	private String adoptionStatus="";
 	private String adoptionLevel="";
 	private String adoptionPasswd="";
+	private String admin_id;
 	
 	private AnimalVO animalId;
 	private AnimalVO animalFile;

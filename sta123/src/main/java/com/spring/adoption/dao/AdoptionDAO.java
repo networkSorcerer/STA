@@ -16,7 +16,7 @@ public interface AdoptionDAO {
 	public int adoptionInsert(AdoptionVO adoptionvo); 
 	public AdoptionVO adoptionDetail(AdoptionVO adoptionvo);
 	
-	public int pwdConfirm(AdoptionVO adoptionvo); 
+	public int adoptionPwdConfirm(AdoptionVO adoptionvo); 
 	public int adoptionUpdate(AdoptionVO adoptionvo);
 	public int adoptionDelete(AdoptionVO adoptionvo);
 	

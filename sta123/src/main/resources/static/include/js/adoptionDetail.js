@@ -80,7 +80,7 @@ $(function(){
 	
 	$("#passwdBtn").on("click", function(){
 		$.ajax({
-			url : "/adoption/pwdConfirm",
+			url : "/adoption/adopionPwdConfirm",
 			type : "post",
 			data : $("#f_passwdCheck").serialize(),
 			dataType : "text",

@@ -1,6 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jsp" %>
+<%-- <%@ page import="java.io.BufferedReader, java.io.FileReader" %>
+
+<%
+    // 다른 JSP 페이지의 경로
+    String filePath = "/WEB-INF/views/project/map/mapList.jsp";
+
+    // 파일을 읽기 위한 BufferedReader 생성
+    BufferedReader reader = new BufferedReader(new FileReader(application.getRealPath(filePath)));
+    StringBuilder content = new StringBuilder();
+    String line;
+
+    // 한 줄씩 읽어서 content에 추가
+    while ((line = reader.readLine()) != null) {
+        content.append(line);
+    }
+
+    // 변수에 저장
+    String otherPageContent = content.toString();
+    reader.close();
+%>
+
+<%= otherPageContent %> --%>
+
 <body>
 	<div class="container">
 		<div class="text-center"><h3>입양 공고 상세 목록</h3></div>
@@ -9,6 +32,7 @@
 			<input type="hidden" name="adoptionId" value="${detail.adoptionId }"/>
 			<input type="hidden" name="adoptionFile" id="adoptionFile" value="${detail.adoptionFile}"/>
 		</form>
+		
 		
 		
 		<div class="row text-center mb_2">
@@ -39,7 +63,7 @@
 		</div>
 		
 		
-		<jsp:include page="../animal/animalDetail.jsp" />
+		<jsp:include page="../animal/adoptionPossible.jsp" />
 		
 		
 		<div class="text-center">

@@ -83,9 +83,9 @@ public class AdoptionServiceImpl implements AdoptionService{
 		
 		//비밀번호 확인 구현 
 		@Override
-		public int pwdConfirm(AdoptionVO adoptionvo) {
+		public int adoptionPwdConfirm(AdoptionVO adoptionvo) {
 			int result = 0;
-			result = adoptionDAO.pwdConfirm(adoptionvo);
+			result = adoptionDAO.adoptionPwdConfirm(adoptionvo);
 			return result;
 		}
 

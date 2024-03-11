@@ -10,7 +10,8 @@
 		<result column="adoption_status" property="adoptionStatus"/>
 		<result column="adoption_level" property="adoptionLevel"/>
 		<result column="adoption_file" property="adoptionFile"/>
-		<result column="adoption_passwd" property="aoptionPasswd"/>
+		<result column="adoption_passwd" property="adoptionPasswd"/>
+		
 	</resultMap>
 	
 	<select id="adoptionList" parameterType="adoption" resultMap="adoptionMap">
@@ -54,7 +55,7 @@
 			select adoption_seq.nextval from dual
 		</selectKey>
 		INSERT INTO adoption (adoption_id, adoption_title, adoption_level,adoption_status,adoption_content, adoption_passwd,adoption_file)
-		VALUES( #{adoptionId}, #{adoptionTitle}, #{adoptionLevel},#{adoptionStatus},#{adoptionContent},#{adoptionPasswd},#{adoptionFile})
+		VALUES( adoption_seq.nextval, #{adoptionTitle}, #{adoptionLevel},#{adoptionStatus},#{adoptionContent},#{adoptionPasswd},#{adoptionFile})
 	</insert> 
 	
 	
@@ -67,7 +68,7 @@
 		WHERE adoption_id = #{adoptionId}
 	</select> 
 	
-	<select id="pwdConfirm" parameterType="adoption" resultType="int">
+	<select id="adoptionPwdConfirm" parameterType="adoption" resultType="int">
 		SELECT NVL((
 					SELECT 1 FROM adoption
 					WHERE adoption_id = #{adoptionId} AND adoption_passwd = #{adoptionPasswd}
